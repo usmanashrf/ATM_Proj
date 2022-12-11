@@ -15,7 +15,7 @@ async function otherAmount(balance) {
         otherAmount(balance);
     }
     else {
-        balance = balance - otherAmnt;
+        balance -= Number(otherAmnt.oAmnt);
     }
     return balance;
 }
@@ -36,18 +36,23 @@ async function cashWithdrawal(balance) {
         switch (amountAnswer.amount) {
             case "500":
                 balance = balance - 500;
+                console.log(`Transaction successful your current balace is: ${balance}`);
                 break;
             case "1000":
                 balance = balance - 1000;
+                console.log(`Transaction successful your current balace is: ${balance}`);
                 break;
             case "5000":
                 balance = balance - 5000;
+                console.log(`Transaction successful your current balace is: ${balance}`);
                 break;
             case "10000":
                 balance = balance - 10000;
+                console.log(`Transaction successful your current balace is: ${balance}`);
                 break;
             case "Other":
                 balance = await otherAmount(balance);
+                console.log(`Transaction successful your current balace is: ${balance}`);
                 break;
         }
     }

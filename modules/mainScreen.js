@@ -1,6 +1,8 @@
 import inquirer from "inquirer";
 import cashWithdrawal from "./TransactionsOptions/cashWithdrawal.js";
 import AddAmount from "./TransactionsOptions/deposits.js";
+import moneyTransfer from "./TransactionsOptions/transfer.js";
+import BillPayment from "./TransactionsOptions/billPayments.js";
 async function doAnotherTransaction() {
     const moreTransaction = await inquirer.prompt([{
             name: "otherTran",
@@ -36,10 +38,11 @@ async function mainScreen(balance) {
                 balance = await AddAmount(balance);
                 break;
             case "Bill payments":
-                console.log("Bill");
+                balance = await BillPayment(balance);
                 break;
             case "Transfer":
-                console.log("transfer");
+                balance = await moneyTransfer(balance);
+                break;
             case "Exit":
                 anotherTrans = "No";
                 break;
